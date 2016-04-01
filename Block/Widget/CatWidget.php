@@ -48,7 +48,6 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
             return $_category;
     }
 
-
     /**
      * Retrieve current store categories
      *
@@ -63,7 +62,6 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
 
 			$str_featcats = $this->getData('featcats');
 			$arr_featcats = explode(",",$str_featcats);
-
 		}
 
 	    $category = $this->_categoryFactory->create()
@@ -73,8 +71,6 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
             ->addAttributeToSelect(['name', 'entity_id', 'parent_id', 'image', 'url_key']);
         return $category;
     }
-
-
 
     /**
      * Retrieve child store categories

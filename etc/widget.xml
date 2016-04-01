@@ -23,12 +23,6 @@
 				<label translate="true">Image Height</label>
 				<description translate="true">Enter Image Height Ex. 250 , do not suffix with px</description>
 			</parameter>
-<!--
-			<parameter name="parentcat" xsi:type="text"  visible="true" sort_order="10">
-				<label translate="true">Specific Parent Category ID</label>
-				<description translate="true">Default Category of Current Store will be used in case of Blank</description>
-			</parameter>
--->
 			<parameter name="featcats" xsi:type="text"  visible="true" sort_order="10">
 				<label translate="true">Specific Category ID</label>
 				<description translate="true">Add comma separated list of category ids you wish to display</description>
