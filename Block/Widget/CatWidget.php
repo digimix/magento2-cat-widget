@@ -10,11 +10,13 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
      */
      const DEFAULT_IMAGE_WIDTH = 250;
      const DEFAULT_IMAGE_HEIGHT = 250;
+
      protected $_categoryHelper;
      protected $categoryFlatConfig;
-
      protected $topMenu;
      protected $_categoryFactory;
+     protected $_categoryCollection;
+
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Catalog\Helper\Category $categoryHelper
@@ -25,12 +27,15 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
         \Magento\Catalog\Helper\Category $categoryHelper,
         \Magento\Catalog\Model\Indexer\Category\Flat\State $categoryFlatState,
         \Magento\Catalog\Model\CategoryFactory $categoryFactory,
-        \Magento\Theme\Block\Html\Topmenu $topMenu
+        \Magento\Theme\Block\Html\Topmenu $topMenu,
+		\Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $categoryCollection
     ) {
         $this->_categoryHelper = $categoryHelper;
         $this->categoryFlatConfig = $categoryFlatState;
         $this->topMenu = $topMenu;
         $this->_categoryFactory = $categoryFactory;
+        $this->_categoryCollection = $categoryCollection;
+
         parent::__construct($context);
     }
     /**
@@ -66,7 +71,7 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
 			$arr_featcats = ['3','23','4'];
 		}
 
-        $collection = $this->_categoryFactory->create()
+        $collection = $this->_categoryCollection->create()
             ->addAttributeToFilter('is_active', 1)
             ->addAttributeToFilter('include_in_menu', 1)
             ->addAttributeToFilter('entity_id', ['in' => $arr_featcats])

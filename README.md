@@ -1,24 +1,28 @@
 # magento2-cat-widget
-List categories by url_key on any CMS page.
+Create a custom category list and display it anywhere with this widget.
 
 #Features
 <ul>
-<li>Add category list anywhere</li>
+<li>Create a category list using entity_id (category id)</li>
+<li>Add category list anywhere (eg: CMS page)</li>
 <li>Category image into list</li>
 <li>Can manage image size</li>
 <li>Can assign custom categories to list by ID</li>
 </ul>
 
+<h2>Use Case</h2>
+<p>Perfect for creating featured category blocks on your CMS home page or footer</p>
+
 <h2>Composer Installation Instructions</h2>
 Add GIT Repository to composer
 <pre>
-composer config repositories.digimix-magento2-cat-widget vcs https://github.com/digimix/magento2-cat-widget/
+	composer config repositories.digimix-magento2-cat-widget vcs https://github.com/digimix/magento2-cat-widget/
 </pre>
 
 After that, need to install this module as follows:
 <pre>
-  composer require magento/magento-composer-installer
-  composer require digimix/catwidget
+	composer require magento/magento-composer-installer
+	composer require digimix/catwidget
 </pre>
 
 <br/>
@@ -28,9 +32,9 @@ create following Directory Structure :<br/>
 <strong>/Magento2Project/app/code/Digimix/CatWidget</strong>
 you can also create by following command:
 <pre>
-cd /Magento2Project
-mkdir app/code/Digimix
-mkdir app/code/Digimix/CatWidget
+	cd /Magento2Project
+	mkdir app/code/Digimix
+	mkdir app/code/Digimix/CatWidget
 </pre>
 
 <h3> Enable Digimix/CatWidget Module</h3>
@@ -48,3 +52,9 @@ to Enable this module you need to follow these steps:
 	<pre>bin/magento setup:di:compile</pre>
 </li>
 </ul>
+
+<h3> Add Category List to a CMS Page or Static Block</h3>
+<pre>
+	{{widget type="Digimix\CatWidget\Block\Widget\CatWidget" image="image" imagewidth="250" imageheight="250" featcats="3"}}
+</pre>
+<p>You can also configure the widget by using the button in the editor window or simply creating a widget via the dashboard.</p>

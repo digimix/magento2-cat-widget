@@ -16,7 +16,7 @@ $title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
 	    if (!$category->getIsActive()) {
 	        continue;
 	    } ?>
-	    <div class="category category-<?php echo $category; ?>">
+	    <div class="category category-<?php echo $category->getName(); ?>">
 	    	<a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
 	    		<?php if($canshowImg && $category->getImageUrl()):?>
 	    		<figure>
