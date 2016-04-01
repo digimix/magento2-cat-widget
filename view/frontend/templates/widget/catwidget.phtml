@@ -1,0 +1,35 @@
+<?php
+$categories = $this->getCategoryList();
+$categoryHelper = $this->getCategoryHelper();
+$canshowImg = $this->canShowImage();
+$title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
+?>
+<?php if ($title):?>
+<div class="block-title">
+	<strong><?php /* @escapeNotVerified */ echo $title; ?></strong>
+</div>
+<?php endif ?>
+<div class="block-content catalog-category">
+<?php
+//echo get_class($categories);
+foreach($categories as $category):
+        //var_dump(get_class_methods($category));
+        $cat = $this->getCategorymodel($category->getId());
+        // var_dump($cat->getImageUrl());
+        // var_dump($cat->debug());die;
+        ?>
+        <div class="category category-<?php echo $cat; ?>">
+        	<a href="<?php echo $cat->getUrl(); ?>">
+        		<?php if($canshowImg && $cat->getImageUrl()):?>
+        		<figure>
+        			<img src="<?= $cat->getImageUrl(); ?>" alt="" width="<?=$this->getImagewidth();?>" height="<?=$this->getImageheight()?>"/>
+        		</figure>
+        		<?php else:?>
+        		<span class="cat-title"><?php echo $cat->getName(); ?></span>
+        		<?php endif;?>
+        	</a>
+        </div>
+        <?php
+endforeach;
+?>
+</div>
