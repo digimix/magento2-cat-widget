@@ -71,7 +71,6 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
             ->addAttributeToFilter('include_in_menu', 1)
             ->addAttributeToFilter('entity_id', ['in' => $arr_featcats])
             ->addAttributeToSelect(['name', 'entity_id', 'parent_id', 'image', 'url_key']);
-            ->setPageSize(12);
         return $collection;
     }
 
