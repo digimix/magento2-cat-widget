@@ -1,5 +1,5 @@
 <?php
-$categories = $this->getCategoryList();
+$categories = $this->getCategoryCollection();
 $categoryHelper = $this->getCategoryHelper();
 $canshowImg = $this->canShowImage();
 $title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
@@ -10,26 +10,25 @@ $title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
 </div>
 <?php endif ?>
 <div class="block-content catalog-category">
-<?php
-//echo get_class($categories);
-foreach($categories as $category):
-        //var_dump(get_class_methods($category));
-        $cat = $this->getCategorymodel($category->getId());
-        // var_dump($cat->getImageUrl());
-        // var_dump($cat->debug());die;
-        ?>
-        <div class="category category-<?php echo $cat; ?>">
-        	<a href="<?php echo $cat->getUrl(); ?>">
-        		<?php if($canshowImg && $cat->getImageUrl()):?>
-        		<figure>
-        			<img src="<?= $cat->getImageUrl(); ?>" alt="" width="<?=$this->getImagewidth();?>" height="<?=$this->getImageheight()?>"/>
-        		</figure>
-        		<?php else:?>
-        		<span class="cat-title"><?php echo $cat->getName(); ?></span>
-        		<?php endif;?>
-        	</a>
-        </div>
-        <?php
-endforeach;
-?>
+	<?php
+	//echo get_class($categories);
+	foreach($categories as $category):
+	    if (!$category->getIsActive()) {
+	        continue;
+	    } ?>
+	    <div class="category category-<?php echo $category; ?>">
+	    	<a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+	    		<?php if($canshowImg && $category->getImageUrl()):?>
+	    		<figure>
+	    			<img src="<?= $category->getImageUrl(); ?>" alt="" width="<?=$this->getImagewidth();?>" height="<?=$this->getImageheight()?>"/>
+	    			<figcaption>
+		    			<span class="cat-title"><?php echo $category->getName(); ?></span>
+	    			</figcaption>
+	    		</figure>
+	    		<?php else:?>
+	    		<span class="cat-title"><?php echo $category->getName(); ?></span>
+	    		<?php endif;?>
+	    	</a>
+	    </div>
+	<?php endforeach; ?>
 </div>

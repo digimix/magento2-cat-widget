@@ -10,7 +10,7 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
      */
      const DEFAULT_IMAGE_WIDTH = 250;
      const DEFAULT_IMAGE_HEIGHT = 250;
-         protected $_categoryHelper;
+     protected $_categoryHelper;
      protected $categoryFlatConfig;
 
      protected $topMenu;
@@ -56,36 +56,24 @@ class CatWidget extends \Magento\Framework\View\Element\Template implements \Mag
      * @param bool $toLoad
      * @return \Magento\Framework\Data\Tree\Node\Collection|\Magento\Catalog\Model\Resource\Category\Collection|array
      */
-   public function getCategoryList()
-    {
-		if($this->getData('featcats') > 0){
 
+    public function getCategoryCollection()
+    {
+	    if( $this->getData('featcats') ){
 			$str_featcats = $this->getData('featcats');
 			$arr_featcats = explode(",",$str_featcats);
+		} else {
+			$arr_featcats = ['3','23','4'];
 		}
 
-	    $category = $this->_categoryFactory->create()
+        $collection = $this->_categoryFactory->create()
             ->addAttributeToFilter('is_active', 1)
             ->addAttributeToFilter('include_in_menu', 1)
             ->addAttributeToFilter('entity_id', ['in' => $arr_featcats])
             ->addAttributeToSelect(['name', 'entity_id', 'parent_id', 'image', 'url_key']);
-        return $category;
+            ->setPageSize(12);
+        return $collection;
     }
-
-    /**
-     * Retrieve child store categories
-     *
-     */
-    public function getChildCategories($category)
-    {
-       if ($this->categoryFlatConfig->isFlatEnabled() && $category->getUseFlatResource()) {
-            $subcategories = (array)$category->getChildrenNodes();
-        } else {
-            $subcategories = $category->getChildren();
-        }
-        return $subcategories;
-    }
-
 
      /**
      * Get the widht of product image
