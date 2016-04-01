@@ -1,6 +1,26 @@
 {
     "name": "digimix/catwidget",
     "description": "Digimix Category List Widget",
+    "homepage": "https://digimix.co/magento2-cat-widget/",
+    "authors": [
+    {
+      "name": "Christine Cardoso",
+      "email": "christine@digimix.co",
+      "homepage": "https://digimix.co"
+    },
+    {
+      "name": "Michael Salafia",
+      "email": "michael@digimix.co",
+      "homepage": "https://digimix.co"
+    }
+  ],
+  "keywords": [
+    "magento"
+  ],
+  "support": {
+    "issues": "https://github.com/digimix/magento2-cat-widget/issues",
+    "forum": "http://tutorialshares.com/"
+    },
     "require": {
         "php": "~5.5.0|~5.6.0|~7.0.0"
     },
