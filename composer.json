@@ -27,7 +27,7 @@
     "type": "magento2-module",
     "version": "1.0.1",
     "license": [
-        "Commercial"
+        "MIT"
     ],
     "autoload": {
         "files": [ "registration.php" ],
