@@ -1,0 +1,6 @@
+{
+  "name": "Magento2-cat-widget",
+  "tagline": "List categories by url_key on any CMS page.",
+  "body": "## Category List Widget for Magento 2.\r\nList categories by url_key on any CMS page.\r\n\r\n### Features\r\n* Add Category List Any Where\r\n* Automatic Pick Default Store Category as Parent\r\n* Category Image into List\r\n* Can Manage Image Size\r\n* Can Assign Custom Parent Category\r\n\r\n### Authors and Contributors\r\nThanks to Christine Cardoso @christinecardoso, and Michael Salafia @michaelsalafia for developing this extension and sharing it with the Magento community. This project is brought to you by Digimix [Magento 2 Developers NYC](https://digimix.co). \r\n\r\n### Support or Contact\r\nHaving trouble with this extension? Check out our [documentation](https://github.com/digimix/magento2-cat-widget) or [report an issue](https://github.com/digimix/magento2-cat-widget/issues) and we’ll help you sort it out.",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
